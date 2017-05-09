@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -18,6 +19,16 @@ class CategoriesController extends Controller
         return view('Categories', ['categories' => Category::all()]);
     }
 
+    /**
+     * Shows items of specific category
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showItems($id)
+    {
+        return view('Items', ['items' => Item::where('category_id', $id)->get(), 'categories' => Category::pluck('title', 'id')->toArray()]);
+    }
     /**
      * Create new category
      *
