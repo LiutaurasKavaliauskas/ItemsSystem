@@ -73,6 +73,7 @@
 <body>
 
 @yield('items')
+@yield('categories')
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
