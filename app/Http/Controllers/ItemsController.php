@@ -19,6 +19,16 @@ class ItemsController extends Controller
     }
 
     /**
+     * Show specific item information
+     *
+     * @param $id
+     */
+    public function showItem($id)
+    {
+       return Item::where('id', $id)->first();
+    }
+
+    /**
      * Creation of new item
      *
      * @return \Illuminate\Http\Response
