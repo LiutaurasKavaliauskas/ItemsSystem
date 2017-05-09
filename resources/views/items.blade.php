@@ -22,6 +22,7 @@
                     <td>Count</td>
                     <td>Price</td>
                     <td>Description</td>
+                    <td>Category</td>
                 </tr>
 
                 @foreach($items as $item)
@@ -30,6 +31,7 @@
                         <td>{{ $item->count }}</td>
                         <td>{{ $item->price }}</td>
                         <td>{{ $item->description }}</td>
+                        <td>{{ $item->category['title'] }}</td>
 
                         <td>
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editModal{{$item->id}}">
@@ -58,6 +60,8 @@
                                         <input name="price" type="text" class="form-control" value="{{$item->price}}">
                                         <label>Description</label>
                                         <input name="description" type="text" class="form-control" value="{{$item->description}}">
+                                        <label>Category</label>
+                                        {!! Form::select('category_id', $categories, null, ['placeholder' => $item->category['title']]) !!}
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -96,7 +100,7 @@
                             <label>Description</label>
                             <input name="description" type="text" class="form-control">
                             <label>Category</label>
-                            {!! Form::select('category', $categories, null, ['placeholder' => 'Select category']) !!}
+                            {!! Form::select('category_id', $categories, null, ['placeholder' => 'Select category']) !!}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
