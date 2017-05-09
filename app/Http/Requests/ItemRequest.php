@@ -26,7 +26,7 @@ class ItemRequest extends FormRequest
         return [
             'title' => 'required',
             'count' => 'required|integer',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
         ];
     }
 }
