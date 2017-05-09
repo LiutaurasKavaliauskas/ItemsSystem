@@ -95,6 +95,8 @@
                             <input name="price" type="text" class="form-control">
                             <label>Description</label>
                             <input name="description" type="text" class="form-control">
+                            <label>Category</label>
+                            {!! Form::select('category', $categories, null, ['placeholder' => 'Select category']) !!}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

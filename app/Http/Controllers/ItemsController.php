@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\ItemRequest;
+use App\Models\Category;
 use App\Models\Item;
+use App\Models\ItemsCategoriesConnections;
 use Illuminate\Http\Request;
 
 class ItemsController extends Controller
@@ -15,7 +18,7 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        return view('Items', ['items' => Item::all()]);
+        return view('Items', ['items' => Item::all(), 'categories' => Category::pluck('title', 'id')->toArray()]);
     }
 
     /**
@@ -25,9 +28,11 @@ class ItemsController extends Controller
      */
     public function create(ItemRequest $request)
     {
-
         Item::create(['title' => $request->title, 'count' => $request->count,
                       'price' => $request->price, 'description' => $request->description]);
+
+        ItemsCategoriesConnections::create(['item_id' => Item::where('title', $request->title)->first()['id'],
+                                            'category_id' => $request->category]);
 
         return redirect()->back();
     }
