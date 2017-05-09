@@ -9,6 +9,7 @@ Route::group(['prefix' => 'items'], function (){
 
 Route::group(['prefix' => 'categories'], function (){
     Route::get('/', ['as' => 'Categories', 'uses' => 'CategoriesController@index']);
+    Route::get('/{id}', ['as' => 'categories.show', 'uses' => 'CategoriesController@showItems']);
     Route::post('create', ['as' => 'categories.create', 'uses' => 'CategoriesController@create']);
     Route::post('edit/{id}', ['as' => 'categories.edit', 'uses' => 'CategoriesController@edit']);
     Route::get('delete/{id}', ['as' => 'categories.delete', 'uses' => 'CategoriesController@destroy']);
