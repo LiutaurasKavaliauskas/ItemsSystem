@@ -34,6 +34,11 @@
                                 Delete category
                             </button>
                         </a>
+                        <a href="{{route('categories.show', ['id' => $category->id])}}">
+                            <button type="button" class="btn btn-primary btn-lg">
+                                Show items in category
+                            </button>
+                        </a>
 
                         {!! Form::open(['url' => route('categories.edit', ['id' => $category->id])]) !!}
                         <div class="modal fade" id="editModal{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
