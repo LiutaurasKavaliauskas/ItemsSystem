@@ -34,47 +34,29 @@ class ItemsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Edit item
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function edit(ItemRequest $request, $id)
     {
-        //
+        Item::where('id', $id)->update(['title' => $request->title, 'count' => $request->count, 'price' => $request->price, 'description' => $request->description]);
+
+        return redirect()->back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ItemRequest $request)
-    {
-        dd($request->title);
-    }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
+     * Remove item.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        Item::where('id', $id)->delete();
+
+        return redirect()->back();
     }
 }

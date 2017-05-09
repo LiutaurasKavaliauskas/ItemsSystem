@@ -18,5 +18,6 @@ Route::get('/', function () {
 Route::group(['prefix' => 'items'], function (){
     Route::get('/', ['as' => 'Items', 'uses' => 'ItemsController@index']);
     Route::post('create', ['as' => 'items.create', 'uses' => 'ItemsController@create']);
-    Route::post('edit', ['as' => 'items.edit', 'uses' => 'ItemsController@edit']);
+    Route::post('edit/{id}', ['as' => 'items.edit', 'uses' => 'ItemsController@edit']);
+    Route::get('delete/{id}', ['as' => 'items.delete', 'uses' => 'ItemsController@destroy']);
 });

@@ -25,24 +25,29 @@
                 </tr>
 
                 @foreach($items as $item)
-
                     <tr>
                         <td>{{ $item->title }} </td>
                         <td>{{ $item->count }}</td>
                         <td>{{ $item->price }}</td>
                         <td>{{ $item->description }}</td>
 
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        <td>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editModal{{$item->id}}">
                             Edit item
                         </button>
+                        <a href="{{route('items.delete', ['id' => $item->id])}}">
+                            <button type="button" class="btn btn-primary btn-lg">
+                                Delete item
+                            </button>
+                        </a>
 
-                        {!! Form::open(['url' => route('items.edit')]) !!}
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        {!! Form::open(['url' => route('items.edit', ['id' => $item->id])]) !!}
+                        <div class="modal fade" id="editModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">New Item Form</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Item Edit Form</h4>
                                     </div>
                                     <div class="modal-body">
                                         <label>Title</label>
@@ -62,18 +67,19 @@
                             </div>
                         </div>
                         {!! Form::close() !!}
+                        </td>
                     </tr>
 
                 @endforeach
 
                 </tbody>
             </table>
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newModal">
                 New Item
             </button>
 
             {!! Form::open(['url' => route('items.create')]) !!}
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
