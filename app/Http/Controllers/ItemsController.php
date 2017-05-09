@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ItemRequest;
-use App\Item;
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class ItemsController extends Controller
@@ -15,9 +15,7 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
-
-        return view('Items', ['items' => $items]);
+        return view('Items', ['items' => Item::all()]);
     }
 
     /**
@@ -28,7 +26,8 @@ class ItemsController extends Controller
     public function create(ItemRequest $request)
     {
 
-        Item::create(['title' => $request->title, 'count' => $request->count, 'price' => $request->price, 'description' => $request->description]);
+        Item::create(['title' => $request->title, 'count' => $request->count,
+                      'price' => $request->price, 'description' => $request->description]);
 
         return redirect()->back();
     }
@@ -41,7 +40,8 @@ class ItemsController extends Controller
      */
     public function edit(ItemRequest $request, $id)
     {
-        Item::where('id', $id)->update(['title' => $request->title, 'count' => $request->count, 'price' => $request->price, 'description' => $request->description]);
+        Item::where('id', $id)->update(['title' => $request->title, 'count' => $request->count,
+                                        'price' => $request->price, 'description' => $request->description]);
 
         return redirect()->back();
     }
