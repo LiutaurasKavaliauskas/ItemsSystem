@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'items'], function (){
+    Route::get('/', ['as' => 'Items', 'uses' => 'ItemsController@index']);
+    Route::post('create', ['as' => 'items.create', 'uses' => 'ItemsController@create']);
+    Route::post('edit', ['as' => 'items.edit', 'uses' => 'ItemsController@edit']);
+});
