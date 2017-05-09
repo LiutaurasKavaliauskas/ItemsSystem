@@ -1,5 +1,9 @@
 <?php
 
+Route::group(['prefix' => 'api'], function (){
+   Route::get('items/{id}', ['as' => 'api.items', 'uses' => 'ItemsController@showItem']);
+});
+
 Route::group(['prefix' => 'items'], function (){
     Route::get('/', ['as' => 'Items', 'uses' => 'ItemsController@index']);
     Route::post('create', ['as' => 'items.create', 'uses' => 'ItemsController@create']);
