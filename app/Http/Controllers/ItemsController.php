@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\ItemRequest;
 use App\Models\Category;
 use App\Models\Item;
-use App\Models\ItemsCategoriesConnections;
-use Illuminate\Http\Request;
 
 class ItemsController extends Controller
 {
@@ -28,11 +25,12 @@ class ItemsController extends Controller
      */
     public function create(ItemRequest $request)
     {
-        Item::create(['title' => $request->title, 'count' => $request->count,
-                      'price' => $request->price, 'description' => $request->description]);
+        Item::create(['title'       => $request->title,
+                      'count'       => $request->count,
+                      'price'       => $request->price,
+                      'description' => $request->description,
+                      'category_id' => $request->category_id]);
 
-        ItemsCategoriesConnections::create(['item_id' => Item::where('title', $request->title)->first()['id'],
-                                            'category_id' => $request->category]);
 
         return redirect()->back();
     }
@@ -45,8 +43,11 @@ class ItemsController extends Controller
      */
     public function edit(ItemRequest $request, $id)
     {
-        Item::where('id', $id)->update(['title' => $request->title, 'count' => $request->count,
-                                        'price' => $request->price, 'description' => $request->description]);
+        Item::where('id', $id)->update(['title' => $request->title,
+                                        'count' => $request->count,
+                                        'price' => $request->price,
+                                        'description' => $request->description,
+                                        'category_id' => $request->category_id]);
 
         return redirect()->back();
     }
