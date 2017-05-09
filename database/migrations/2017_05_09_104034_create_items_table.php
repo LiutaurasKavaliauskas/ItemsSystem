@@ -19,7 +19,8 @@ class CreateItemsTable extends Migration {
 			$table->integer('count');
 			$table->float('price', 10, 0);
 			$table->string('description')->nullable();
-		});
+            $table->timestamps();
+        });
 	}
 
 

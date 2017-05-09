@@ -16,7 +16,8 @@ class CreateItemsCategoriesConnectionsTable extends Migration {
 		{
 			$table->integer('item_id')->index('fk_items_categories_connections_items_idx');
 			$table->integer('category_id')->index('fk_items_categories_connections_categories1_idx');
-		});
+            $table->timestamps();
+        });
 	}
 
 
