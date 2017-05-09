@@ -22,10 +22,11 @@ class ItemsController extends Controller
      * Show specific item information
      *
      * @param $id
+     * @return string
      */
     public function showItem($id)
     {
-       return Item::where('id', $id)->first();
+        return response()->json(Item::where('id', $id)->first());
     }
 
     /**
