@@ -17,10 +17,14 @@ return [
             'items'  => 'Show items in category',
             'save'   => 'Save',
             'close'  => 'Close',
+            'yes'    => 'Yes',
+            'no'     => 'No'
         ],
     'forms'   =>
         [
-            'edit' => 'Category Edit Form',
-            'new'  => 'New Category Form',
+            'edit'   => 'Category Edit Form',
+            'new'    => 'New Category Form',
+            'delete' => 'Deleting category will also delete all items that belongs to it. <br>
+                         Are you sure?'
         ]
 ];

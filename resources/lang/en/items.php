@@ -11,6 +11,7 @@ return [
             'count'       => 'Count',
             'description' => 'Description',
             'category'    => 'Category',
+            'price'       => 'Price',
         ],
     'buttons' =>
         [
