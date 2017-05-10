@@ -62,6 +62,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
+        Item::where('category_id', $id)->delete();
         Category::where('id', $id)->delete();
 
         return redirect()->back();
