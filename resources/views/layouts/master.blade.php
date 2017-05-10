@@ -70,8 +70,18 @@
         }
     </style>
 </head>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="{{route('index')}}"><strong>{{ trans('index.navi.home') }}</strong></a></li>
+                <li><a href="{{route('items')}}"><strong>{{ trans('index.navi.items') }}</strong></a></li>
+                <li><a href="{{route('categories')}}"><strong>{{ trans('index.navi.categories') }}</strong></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 <body>
-
 <div class="flex-center position-ref full-height">
     <div class="content">
 @yield('content')
