@@ -4,6 +4,8 @@ return [
     'page'    =>
         [
             'title' => 'Items',
+            'none'  => 'No items yet!',
+            'sorry' => 'Sorry, you must create a category first if you want to add new item'
         ],
     'table'   =>
         [

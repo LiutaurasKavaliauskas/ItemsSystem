@@ -14,5 +14,11 @@ return [
         [
             'items'      => 'View items',
             'categories' => 'View categories'
-        ]
+        ],
+    'navi' =>
+    [
+        'home' => 'Home',
+        'items' => 'Items',
+        'categories' => 'Categories'
+    ]
 ];
