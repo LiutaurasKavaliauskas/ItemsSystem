@@ -27,7 +27,7 @@ class ItemRequest extends FormRequest
             'title'       => 'required',
             'count'       => 'required|integer',
             'price'       => 'required|numeric',
-            'category_id' => 'required'
+            'category' => 'required'
         ];
     }
 }
