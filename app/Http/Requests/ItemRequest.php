@@ -24,9 +24,10 @@ class ItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'count' => 'required|integer',
-            'price' => 'required|numeric',
+            'title'       => 'required',
+            'count'       => 'required|integer',
+            'price'       => 'required|numeric',
+            'category_id' => 'required'
         ];
     }
 }
