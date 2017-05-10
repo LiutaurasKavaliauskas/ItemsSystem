@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', trans('items.title'))
+@section('title', trans('items.page.title'))
 
 @section('content')
     <style>
