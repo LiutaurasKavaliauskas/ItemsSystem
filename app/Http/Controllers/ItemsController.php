@@ -40,7 +40,7 @@ class ItemsController extends Controller
                       'count'       => $request->count,
                       'price'       => $request->price,
                       'description' => $request->description,
-                      'category_id' => $request->category_id]);
+                      'category_id' => $request->category]);
 
 
         return redirect()->back();
@@ -58,7 +58,7 @@ class ItemsController extends Controller
                                         'count' => $request->count,
                                         'price' => $request->price,
                                         'description' => $request->description,
-                                        'category_id' => $request->category_id]);
+                                        'category_id' => $request->category]);
 
         return redirect()->back();
     }
